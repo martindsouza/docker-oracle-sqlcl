@@ -31,9 +31,15 @@ The following is focused on MacOS / Linux users.
 
 ```bash
 alias sqlcl="docker run -it --rm \
+  --network="host" \
   -v `pwd`:/sqlcl \
   martindsouza/docker-sqlcl"
 ```
+
+A few things about the parameters:
+
+- `--network="host"`: This will mimic the current host networking (with the goal of acting like a binary)
+- `-v `pwd`:/sqlcl`: This will set the current directory that `sqlcl` is run to the one that the container is looking at
 
 - Then to run execute: `sqlcl <connection string>`
 
