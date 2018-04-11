@@ -12,12 +12,13 @@ Oracle SQLcl docker container
 
 ## Install
 
-First [download Oracle SQLcl](http://www.oracle.com/technetwork/developer-tools/sqlcl/downloads/index.html)
+[Download Oracle SQLcl](http://www.oracle.com/technetwork/developer-tools/sqlcl/downloads/index.html)
 
 ```bash
 git clone https://github.com/martindsouza/docker-sqlcl
 
 cd docker-sqlcl
+
 # *** Copy the downloaded sqlcl.zip file into this directory ***
 
 docker build -t martindsouza/docker-sqlcl .
@@ -48,6 +49,6 @@ Parameter | Description
 
 ## Volumes
 
-Parameter | Description
+Volume | Description
 ---------|----------
 `/sqlcl` | This is the folder that SQLcl will 
