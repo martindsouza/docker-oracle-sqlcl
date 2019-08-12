@@ -2,13 +2,7 @@
 
 Oracle SQLcl docker container
 
-<!-- TOC depthFrom:2 -->
-
-- [Install](#install)
-- [Run](#run)
-- [Volumes](#volumes)
-
-<!-- /TOC -->
+<!-- TOC depthFrom:2 -->autoauto- [Install](#install)auto- [Run](#run)auto- [Volumes](#volumes)autoauto<!-- /TOC -->
 
 ## Install
 
@@ -21,7 +15,7 @@ cd docker-sqlcl
 
 # *** Copy the downloaded sqlcl.zip file into this directory ***
 
-docker build -t martindsouza/docker-sqlcl .
+docker build -t martindsouza/docker-sqlcl:18.1.0 -t martindsouza/docker-sqlcl:latest.
 ```
 
 ## Run
@@ -34,7 +28,7 @@ The following is focused on MacOS / Linux users.
 alias sqlcl="docker run -it --rm \
   --network="host" \
   -v `pwd`:/sqlcl \
-  martindsouza/docker-sqlcl"
+  martindsouza/docker-sqlcl:latest"
 ```
 
 A few things about the parameters:

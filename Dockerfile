@@ -7,7 +7,7 @@ ENV TZ="GMT" \
   SQLCL_BIN_NAME="sqlcl" \ 
   PATH="/usr/local/sqlcl/bin:${PATH}"
 
-COPY ["sqlcl-*.zip", "scripts/*", "/tmp/"]
+COPY ["files/sqlcl-*.zip", "scripts/*", "/tmp/"]
 
 # This is a dummy volume to reference user's custom scripts
 VOLUME ["/sqlcl"]
