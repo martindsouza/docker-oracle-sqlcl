@@ -1,4 +1,4 @@
-# Oracle SQLcl docker container
+# Oracle SQLcl Docker Image
 
 - [Install](#install)
 - [Run](#run)
