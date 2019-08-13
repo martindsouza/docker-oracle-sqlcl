@@ -1,8 +1,11 @@
-# docker-sqlcl
+# Oracle SQLcl docker container
 
-Oracle SQLcl docker container
-
-<!-- TOC depthFrom:2 -->autoauto- [Install](#install)auto- [Run](#run)auto- [Volumes](#volumes)autoauto<!-- /TOC -->
+- [Install](#install)
+- [Run](#run)
+- [Volumes](#volumes)
+- [`/oracle/` Folder](#oracle-folder)
+  - [`login.sql`](#loginsql)
+  - [Aliases](#aliases)
 
 ## Install
 
@@ -32,7 +35,7 @@ alias sqlcl="docker run -it --rm \
   martindsouza/docker-sqlcl:latest"
 ```
 
-To persist add the `alias` command to `~/.bash_profile`. If using [zsh](https://ohmyz.sh/) then use `~/.zshrc`.
+To persist add the `alias` command to `~/.bash_profile`. If using [zsh](https://ohmyz.sh/) then add to `~/.zshrc`.
 
 A few things about the parameters:
 
@@ -43,7 +46,7 @@ Parameter | Description
 `-v ``pwd``:/sqlcl` | This will set the current directory that `sqlcl` is run to the one that the container is looking at
 `-v ~/Documents/Oracle/:/oracle` | _(optional)_ for `login.sql` to load startup scripts
 
-- Then to run execute: `sqlcl <connection string>`
+- To execute: `sqlcl <connection string>`
 
 
 
