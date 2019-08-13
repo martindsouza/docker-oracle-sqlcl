@@ -18,7 +18,10 @@ cd docker-oracle-sqlcl
 
 # *** Copy the downloaded sqlcl.zip file into this directory ***
 
-docker build -t martindsouza/docker-oracle-sqlcl:19.2.1 -t martindsouza/docker-oracle-sqlcl:latest .
+docker build \
+  -t docker-oracle-sqlcl:19.2.1 \
+  -t docker-oracle-sqlcl:latest \
+  .
 ```
 
 ## Run
@@ -32,7 +35,7 @@ alias sqlcl="docker run -it --rm \
   --network="host" \
   -v `pwd`:/sqlcl \
   -v ~/Documents/Oracle/:/oracle \
-  martindsouza/docker-oracle-sqlcl:latest"
+  docker-oracle-sqlcl:latest"
 ```
 
 To persist add the `alias` command to `~/.bash_profile`. If using [zsh](https://ohmyz.sh/) then add to `~/.zshrc`.
