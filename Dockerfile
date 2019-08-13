@@ -5,12 +5,15 @@ MAINTAINER Martin DSouza <martin@talkapex.com>
 ENV TZ="GMT" \
   SQLCL_DIR="/usr/local/sqlcl" \
   SQLCL_BIN_NAME="sqlcl" \ 
-  PATH="/usr/local/sqlcl/bin:${PATH}"
+  PATH="/usr/local/sqlcl/bin:${PATH}" \
+  SQLPATH="/oracle/"
 
 COPY ["files/sqlcl-*.zip", "scripts/*", "/tmp/"]
 
 # This is a dummy volume to reference user's custom scripts
-VOLUME ["/sqlcl"]
+# /sqlcl: For use of pwd
+# /oracle: to reference login.sql and sqlcl aliases
+VOLUME ["/sqlcl","/oracle"]
 WORKDIR "/sqlcl"
 
 RUN chmod +x /tmp/install-sqlcl.sh && \

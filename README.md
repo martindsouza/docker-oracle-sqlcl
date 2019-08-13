@@ -28,6 +28,7 @@ The following is focused on MacOS / Linux users.
 alias sqlcl="docker run -it --rm \
   --network="host" \
   -v `pwd`:/sqlcl \
+  -v ~/Documents/Oracle/:/oracle \
   martindsouza/docker-sqlcl:latest"
 ```
 
@@ -39,12 +40,19 @@ A few things about the parameters:
 Parameter | Description
 ---------|----------
 `--network="host"` |  This will mimic the current host networking (with the goal of acting like a binary)
-`-v `pwd`:/sqlcl` | This will set the current directory that `sqlcl` is run to the one that the container is looking at
+`-v ``pwd``:/sqlcl` | This will set the current directory that `sqlcl` is run to the one that the container is looking at
+`-v ~/Documents/Oracle/:/oracle` | _(optional)_ for `login.sql` to load startup scripts
 
 - Then to run execute: `sqlcl <connection string>`
+
+
+### `login.sql
+
+TODO how to reference a login.sql
 
 ## Volumes
 
 Volume | Description
 ---------|----------
-`/sqlcl` | This is the folder that SQLcl will 
+`/sqlcl` | This is the folder that SQLcl will reference
+`/oracle` | This is the folder that you will put `login.sql` and can load `alias` from here. Ex: `alias load /oracle/sqlcl-alias.xml`. Note the reference is to the container's local `/oracle` folder and not your full path. 
