@@ -15,7 +15,7 @@ cd docker-sqlcl
 
 # *** Copy the downloaded sqlcl.zip file into this directory ***
 
-docker build -t martindsouza/docker-sqlcl:18.1.0 -t martindsouza/docker-sqlcl:latest.
+docker build -t martindsouza/docker-sqlcl:19.2.1 -t martindsouza/docker-sqlcl:latest .
 ```
 
 ## Run
@@ -30,6 +30,8 @@ alias sqlcl="docker run -it --rm \
   -v `pwd`:/sqlcl \
   martindsouza/docker-sqlcl:latest"
 ```
+
+To persist add the `alias` command to `~/.bash_profile`. If using [zsh](https://ohmyz.sh/) then use `~/.zshrc`.
 
 A few things about the parameters:
 

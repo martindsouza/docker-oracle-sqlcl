@@ -8,10 +8,11 @@ unzip sqlcl*.zip
 # Cleanup
 rm -rf sqlcl*.zip
 
-# The unzip will create a folder like: dbtools-sqlcl-18.1.0
-cd dbtools*
+# The unzip will create a folder like: sqlcl
+cd sqlcl
 
-# Rename 2sql binary if provided
+# Rename sql binary if provided
+# Not required anymore since binary has now been renamed to sqlcl
 if [ ! -z "$SQLCL_BIN_NAME" ]; then
   mv bin/sql bin/$SQLCL_BIN_NAME
 fi

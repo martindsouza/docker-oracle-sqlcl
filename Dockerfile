@@ -21,6 +21,8 @@ RUN chmod +x /tmp/install-sqlcl.sh && \
   # for tput which is required by sqlcl
   apk add ncurses && \
   /tmp/install-sqlcl.sh
+  # debug
+  # apk add ncurses
 
 ENTRYPOINT ["sqlcl"]
 CMD ["/nolog"]
