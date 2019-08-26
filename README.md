@@ -52,6 +52,7 @@ Parameter | Description
 - To execute: `sqlcl <connection string>`
 
 
+**Note:** For the `<connection string>` it usually looks something like `sqlcl giffy/giffy@localhost:32118/xepdb1`. If you're referencing a port that is being tunneled by host machine (i.e. laptop) `localhost` doesn't seem to work. Instead use `host.docker.internal` to reference the host machine. Ex: `sqlcl giffy/giffy@host.docker.internal:32118/xepdb1`.
 
 ## Volumes
 
