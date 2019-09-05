@@ -14,7 +14,7 @@
 ```bash
 git clone https://github.com/martindsouza/docker-oracle-sqlcl
 
-cd docker-oracle-sqlcl
+cd docker-oracle-sqlcl/files
 
 # *** Copy the downloaded sqlcl.zip file into this directory ***
 
