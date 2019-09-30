@@ -6,6 +6,8 @@
 - [`/oracle/` Folder](#oracle-folder)
   - [`login.sql`](#loginsql)
   - [Aliases](#aliases)
+  - [Oracle Wallet / Oracle OCI ATP](#oracle-wallet--oracle-oci-atp)
+
 
 ## Install
 
@@ -35,7 +37,7 @@ alias sqlcl="docker run -it --rm \
   --network="host" \
   -v `pwd`:/sqlcl \
   -v ~/Documents/Oracle/:/oracle \
-  oracle-sqlcl:latest"
+  oracle-sqlcl:latest"****
 ```
 
 To persist add the `alias` command to `~/.bash_profile`. If using [zsh](https://ohmyz.sh/) then add to `~/.zshrc`.
@@ -89,3 +91,24 @@ alias load /oracle/sqlcl-alias.xml
 SQLcl allow for aliases (not to be confused with Bash based aliases). Theres' lots of great examples on how to use them and one of the better ones is found [here](https://mikesmithers.wordpress.com/2019/06/25/sqlcl-alias-because-you-cant-remember-everything/).
 
 To load an alias see the previous `login.sql` file example. You should store aliases in the same folder as `login.sql` as it is all mapped to the `/oracle/` folder in the Container
+
+### Oracle Wallet / Oracle OCI ATP
+
+When connecting to an Oracle Cloud (OCI) Autonomous Transaction Processing (ATP) database you'll need to reference a folder that contains the wallet information provided by the ATP instance [docs](https://docs.cloud.oracle.com/iaas/Content/Database/Tasks/adbconnecting.htm). 
+
+In the examples above we've mapped `~/Documents/Oracle/` (laptop) to `/oracle` (container) volume. To handle the OCI wallet requirement do the following.
+
+On your laptop:
+
+- Put the wallet files in `~/Documents/Oracle/wallets/atp01` (where `atp01` is the folder container the wallet files for a given ATP instance. Note that the folder name is entirely what you want to call it)
+- Set the `TNS_ADMIN` variable. **This needs to be how the container will reference the folder**. In this example it would be: `TNS_ADMIN=/oracle/wallets/atp01`
+- Connect to the ATP instance using the `sqlcl` alias.
+
+Full example:
+
+```bash
+TNS_ADMIN=/oracle/wallets/atp01
+sqlcl admin/myatp_password@atp01_high
+
+SQL>
+```
