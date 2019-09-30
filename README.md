@@ -37,6 +37,7 @@ alias sqlcl="docker run -it --rm \
   --network="host" \
   -v `pwd`:/sqlcl \
   -v ~/Documents/Oracle/:/oracle \
+  -e TNS_ADMIN=\$TNS_ADMIN \
   oracle-sqlcl:latest"****
 ```
 
