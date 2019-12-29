@@ -1,27 +1,28 @@
 # Oracle SQLcl Docker Image
 
-- [Install](#install)
+- [Build Image](#build-image)
 - [Run](#run)
 - [Volumes](#volumes)
-- [`/oracle/` Folder](#oracle-folder)
-  - [`login.sql`](#loginsql)
+- [/oracle/ Folder](#oracle-folder)
+  - [login.sql](#loginsql)
   - [Aliases](#aliases)
   - [Oracle Wallet / Oracle OCI ATP](#oracle-wallet--oracle-oci-atp)
 
 
-## Install
+## Build Image
 
 [Download Oracle SQLcl](http://www.oracle.com/technetwork/developer-tools/sqlcl/downloads/index.html)
 
 ```bash
 git clone https://github.com/martindsouza/docker-oracle-sqlcl
-
 cd docker-oracle-sqlcl
 
-# *** Copy the downloaded sqlcl.zip file into this directory ***
+# *** Copy the downloaded sqlcl.zip file into the files directory ***
+cp ~/Downloads/sqlcl-.*.zip files/
 
+# Build the image
 docker build \
-  -t oracle-sqlcl:19.2.1 \
+  -t oracle-sqlcl:19.4.0 \
   -t oracle-sqlcl:latest \
   .
 ```
