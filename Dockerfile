@@ -16,19 +16,24 @@ COPY ["files/sqlcl-*.zip", "scripts/*", "/tmp/"]
 VOLUME ["/sqlcl","/oracle"]
 WORKDIR "/sqlcl"
 
-RUN chmod +x /tmp/install-sqlcl.sh && \
+RUN echo "" && \
+  chmod +x /tmp/install-sqlcl.sh && \
+  chmod +x /tmp/start-container.sh && \
   apk update && \
   apk upgrade && \
   # bash is required by sqlcl
   apk add bash && \
   # for tput which is required by sqlcl
   apk add ncurses && \
-  /tmp/install-sqlcl.sh
+  /tmp/install-sqlcl.sh && \
   # debug
   # apk add ncurses
+  echo ""
 
-ENTRYPOINT ["sqlcl"]
+# #9: Used to be just sqlcl but caused an issue when $TNS_ADMIN was not set
+# ENTRYPOINT ["sqlcl"]
+ENTRYPOINT ["/tmp/start-container.sh"]
 CMD ["/nolog"]
 
 # debug
-# ENTRYPOINT [ "/bin/bash" ]
+# ENTRYPOINT [ "/bin/ash" ]
