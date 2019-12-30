@@ -39,7 +39,7 @@ alias sqlcl="docker run -it --rm \
   -v `pwd`:/sqlcl \
   -v ~/Documents/Oracle/:/oracle \
   -e TNS_ADMIN=\$TNS_ADMIN \
-  oracle-sqlcl:latest"****
+  oracle-sqlcl:latest"
 ```
 
 To persist add the `alias` command to `~/.bash_profile`. If using [zsh](https://ohmyz.sh/) then add to `~/.zshrc`.
