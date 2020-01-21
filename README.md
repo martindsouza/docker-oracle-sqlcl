@@ -3,8 +3,8 @@
 - [Build Image](#build-image)
 - [Run](#run)
 - [Volumes](#volumes)
-- [/oracle/ Folder](#oracle-folder)
-  - [login.sql](#loginsql)
+- [`/oracle/` Folder](#oracle-folder)
+  - [`login.sql`](#loginsql)
   - [Aliases](#aliases)
   - [Oracle Wallet / Oracle OCI ATP](#oracle-wallet--oracle-oci-atp)
 
@@ -32,14 +32,15 @@ docker build \
 The following is focused on MacOS / Linux users.
 
 - Create alias
+  - *Note: the wrapping single quotes `'` instead of a double quote `"` which prevents `pwd` from being evaluated during the alias definition*
 
 ```bash
-alias sqlcl="docker run -it --rm \
+alias sqlcl='docker run -it --rm \
   --network="host" \
   -v `pwd`:/sqlcl \
   -v ~/Documents/Oracle/:/oracle \
   -e TNS_ADMIN=\$TNS_ADMIN \
-  oracle-sqlcl:latest"
+  oracle-sqlcl:latest'
 ```
 
 To persist add the `alias` command to `~/.bash_profile`. If using [zsh](https://ohmyz.sh/) then add to `~/.zshrc`.
