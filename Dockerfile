@@ -6,7 +6,9 @@ ENV TZ="GMT" \
   SQLCL_DIR="/usr/local/sqlcl" \
   SQLCL_BIN_NAME="sqlcl" \ 
   PATH="/usr/local/sqlcl/bin:${PATH}" \
-  SQLPATH="/oracle/"
+  SQLPATH="/oracle/" \
+  # #12 Fixes issue with 20.2
+  LANG="en_US.utf8"  
 
 COPY ["files/sqlcl-*.zip", "scripts/*", "/tmp/"]
 

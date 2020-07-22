@@ -22,7 +22,7 @@ cp ~/Downloads/sqlcl-.*.zip files/
 
 # Build the image
 docker build \
-  -t oracle-sqlcl:19.4.0 \
+  -t oracle-sqlcl:20.2.0 \
   -t oracle-sqlcl:latest \
   .
 ```
