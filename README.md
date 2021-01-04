@@ -115,3 +115,17 @@ sqlcl admin/myatp_password@atp01_high
 
 SQL>
 ```
+
+#### Updating `sqlnet.ora` file
+When you try to run `sqlcl` using the Oracle Wallet you may get the error `ORA-28759: failure to open file` (see [#13](https://github.com/martindsouza/docker-oracle-sqlcl/issues/13) for more info). This is because of a mapping in the `sqlnet.ora` file that is provided with it. *Note in our example `sqlnet.ora` would be in the unzipped file: `~/Documents/Oracle/wallets/atp01/sqlnet.ora`* You need to change the following in the file:
+
+From: `?/network/admin`
+To: `$TNS_ADMIN`
+
+You can also script this using `sed`:
+
+```bash
+sed -i .bak "s|?/network/admin|\$TNS_ADMIN|g" $TNS_ADMIN/sqlnet.ora
+```
+
+You only need to change this once
