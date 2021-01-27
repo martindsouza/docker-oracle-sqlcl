@@ -1,4 +1,4 @@
-#!/bin/ash
+#!/bin/bash
 
 mkdir $SQLCL_DIR
 
